@@ -1,0 +1,56 @@
+<h1>My Younger Years</h1>
+<h2>Below are some questions about your younger years. Feel free to answer as many or as few as you like!</h2>
+
+	<%= form_for @write do |f| %>
+
+<li>
+	<%=  f.label :category_question, "1) When and where were you born?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "2) Where did you grow up?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "3) What was it like?" %>
+	<%= f.text_area :category_question %>
+<br><br>
+	<%=  f.label :category_question, "4) Who were your parents?" %>
+	<%= f.text_area :category_question %>
+<br><br>
+	<%=  f.label :category_question, "5) What were your parents like?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "6) How was your relationship with your parents?" %>
+	<%= f.text_area :category_question %>
+<br><br>
+	<%=  f.label :category_question, "7) Did you get into trouble? What was the worst thing you did?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "8) Do you have any siblings? What were they like growing up?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "9) What did you look like?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "10) How would you describe yourself as a child? Were you happy?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "11) What is your best memory of childhood? Worst?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "12) Did you have a nickname? How’d you get it?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "13) Who were your best friends? What were they like?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "14) Do you have any favorite stories from your childhood?" %>
+	<%= f.text_area :category_question %>
+<br><br>	
+	<%=  f.label :category_question, "15) What did you think your life would be like when you were older?" %>
+	<%= f.text_area :category_question %>
+<br><br>
+	<%= f.submit "Save Answers" %>
+</li>
+<% end %>
+
+
