@@ -3,7 +3,7 @@
 <div class="category">
 	<% @categories.each do |category| %>
 	<ul>
-	    <li><%= link_to category.name, new_text_story_url( category_id: category.id ), :method  => "get" %></li>
+	    <li><%= link_to category.name, new_photo_url( category_id: category.id ), :method  => "get" %></li>
 	  </ul>
 	<% end %>
 </div>
@@ -12,4 +12,4 @@
 
 <p><%= link_to 'New Category', new_category_path %></p>
 
-<p><%= link_to 'My Stories', text_stories_url %></p>
+<p><%= link_to 'My Photo Stories', photos_url %></p>

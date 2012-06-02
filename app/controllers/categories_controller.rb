@@ -2,6 +2,10 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   
+  def write_a_photo_story
+    @categories = Category.all
+  end
+  
   def write_a_story
     @categories = Category.all
   end
