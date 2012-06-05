@@ -2,6 +2,8 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   
+  before_filter :authenticate_user!
+  
   def write_a_photo_story
     @categories = Category.all
   end

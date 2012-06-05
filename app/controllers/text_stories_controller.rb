@@ -1,6 +1,9 @@
 class TextStoriesController < ApplicationController
   # GET /text_stories
   # GET /text_stories.json
+  
+  before_filter :authenticate_user!
+  
   def index
     @text_stories = TextStory.all
 
@@ -41,12 +44,12 @@ class TextStoriesController < ApplicationController
   # POST /text_stories
   # POST /text_stories.json
   def create
-    @text_story = TextStory.new(params[:text_story])
+    @text_story = current_user.text_stories.new(params[:text_story])
     @text_story.save
 
     respond_to do |format|
       if @text_story.save
-        format.html { redirect_to write_a_story_url, notice: 'Text story was successfully created.' }
+        format.html { redirect_to @text_story, notice: 'Text story was successfully created.' }
         format.json { render json: @text_story, status: :created, location: @text_story }
       else
         format.html { render action: "new" }
@@ -58,7 +61,7 @@ class TextStoriesController < ApplicationController
   # PUT /text_stories/1
   # PUT /text_stories/1.json
   def update
-    @text_story = TextStory.find(params[:id])
+    @text_story = current_user.text_stories.find(params[:id])
 
     respond_to do |format|
       if @text_story.update_attributes(params[:text_story])
@@ -74,7 +77,7 @@ class TextStoriesController < ApplicationController
   # DELETE /text_stories/1
   # DELETE /text_stories/1.json
   def destroy
-    @text_story = TextStory.find(params[:id])
+    @text_story = current_user.text_stories.find(params[:id])
     @text_story.destroy
 
     respond_to do |format|

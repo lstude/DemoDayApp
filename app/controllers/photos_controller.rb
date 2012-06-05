@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  
+  before_filter :authenticate_user!
     
   # GET /photos
   # GET /photos.json
@@ -42,7 +44,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(params[:photo])
+    @photo = current_user.photos.new(params[:photo])
 
     respond_to do |format|
       if @photo.save
@@ -58,7 +60,7 @@ class PhotosController < ApplicationController
   # PUT /photos/1
   # PUT /photos/1.json
   def update
-    @photo = Photo.find(params[:id])
+    @photo = current_user.photos.find(params[:id])
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
@@ -74,7 +76,7 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
-    @photo = Photo.find(params[:id])
+    @photo = current_user.photos.find(params[:id])
     @photo.destroy
 
     respond_to do |format|

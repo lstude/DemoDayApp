@@ -1,0 +1,8 @@
+Hello <%= @user.first %>
+
+<% @user.text_stories.each do |s| %>
+	<hr style="border: 1px solid #333" />
+	<%= s.question.inquiry %>
+	<%= s.text %>
+	<hr style="border: 1px solid #333" />
+<% end %>

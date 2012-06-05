@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
+  
+  before_filter :authenticate_user!
+  
   def index
     @questions = Question.all
 

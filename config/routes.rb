@@ -1,5 +1,7 @@
 DemoDayApp::Application.routes.draw do
   
+  resources :profile, :only => :index
+  
   resources :photos
 
   resources :text_stories
