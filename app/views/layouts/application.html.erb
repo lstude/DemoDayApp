@@ -3,7 +3,7 @@
 <head>
 
   <title>eLegacy - <%= yield (:title) || "Demo Day App" %></title>
-	<link href='http://fonts.googleapis.com/css?family=Patua+One|Merriweather:400,700,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,900,300' rel='stylesheet' type='text/css'>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -23,8 +23,9 @@
 				 <ul>
 	          <li><a href="/">Home</a></li>
 	          <li><a href="/write_a_story">Write a Story</a></li>
-	          <li><a href="/write_a_photo_story">Photo Story</a></li>
-	          <li><a href="#">Video Story</a></li>
+	          <li><a href="/write_a_photo_story">Upload a Photo Story</a></li>
+	          <li><a href="#">Record a Video Story</a></li>
+			  <li><a href="#">View All My Stories</a></li>
 	        </ul>
 			</nav>
 			

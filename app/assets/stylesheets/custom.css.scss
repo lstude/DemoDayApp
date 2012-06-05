@@ -20,7 +20,7 @@ h1 {
 	font-family: 'Merriweather', serif;
 }
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 *:focus {
   outline: 1;
@@ -223,6 +223,7 @@ nav li a {
 
 #gallery li {
 	display: inline;
+	text-align: center;
 }
 
 .thumbnail {
@@ -331,7 +332,7 @@ height: 100%;
 
 
 
-/*  we need to talk about this!
+/*  we need to talk about this - what does it apply to
 
 .text_field {
 height:300px;
