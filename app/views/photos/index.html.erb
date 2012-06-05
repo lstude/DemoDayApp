@@ -1,0 +1,27 @@
+<p class="btn"><%= link_to 'NEW PHOTO STORY', new_photo_url %></p>
+
+<h1>Listing photos</h1>
+
+<% @photos.each do |photo| %>
+	<div class="thumbnail">
+		<p><%= image_tag(photo.embed_url, :size => "150x150") %></p>
+	</div>
+	<div class="photo-text">
+	    <p>
+					<span>Question:</span>
+					<%= Question.find(photo.question_id).inquiry %>
+			</p>
+	    <p>
+					<span>Story:</span>
+					<%= photo.text %></p>
+	    <p>
+					<%= link_to 'Show', photo %> | <%= link_to 'Edit', 	
+					edit_photo_path(photo) %> | <%= link_to 'Destroy', 		
+					photo, confirm: 'Are you sure?', method: :delete %>
+			</p>
+	</div>
+	<div class="clear"></div>
+<% end %>
+
+
+

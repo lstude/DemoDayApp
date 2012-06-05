@@ -1,8 +1,337 @@
+/* RESET */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, hr, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+  color: #191f1f;
+}
 body {
-input,label{
-display:block;
+  line-height: 1;
 }
+
+h1 {
+	font-family: 'Merriweather', serif;
 }
+a {
+  text-decoration: none;
+}
+*:focus {
+  outline: 1;
+}
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+nav ul {
+  list-style: none;
+}
+ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input, select {
+  vertical-align: middle;
+}
+
+/* Global */
+
+body {
+  background: url('arches_bg.png') repeat;
+  background-image: url('arches_bg.png');
+  font: 13px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.container {
+	background: #fff;
+     -moz-border-radius: 5px;
+       -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  margin: 20px auto;
+  padding-bottom: 20px;
+  width: 960px;
+  min-height: 100%;
+  margin-bottom: -330px;
+  position: relative;	
+}
+
+textarea {
+	height: 400px;
+	width: 500px;
+}
+
+label {
+	font-family: 'Merriweather', serif;
+}
+
+/* Header */
+
+header {
+	padding: 20px;
+	height: 75px;
+}
+
+header h1, label {
+	float: left;
+	font-family: 'Merriweather', serif;
+}
+
+header h1 a {
+	color: #000;
+	font-size: 40px;
+	line-height: 75px;
+}
+
+header ul {
+	float: right;
+	font-family: 'Merriweather', serif;
+	font-weight: bold;
+}
+
+header li {
+	float: left;
+}
+
+header li a {
+	color: #191f1f;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+header .btn {
+	background: -webkit-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -moz-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -o-linear-gradient(top, #4c4f4f, #191f1f);
+	background: linear-gradient(top, #4c4f4f, #191f1f);
+	border: 1px solid #ccc;
+	 -moz-border-radius: 8px;
+       -o-border-radius: 8px;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+	padding: 4px 15px;
+	line-height: 15px;	
+	width: 50px;
+}
+
+header .btn {
+	color: #fff;
+	margin-left: 15px;
+}
+
+/* Nav */
+
+nav {
+	background: -webkit-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -moz-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -o-linear-gradient(top, #4c4f4f, #191f1f);
+	background: linear-gradient(top, #4c4f4f, #191f1f);
+	border: 1px solid #ccc;
+	border-width: 1px 0;
+	height: 30px;
+	line-height:30px;
+	font-size: 14px;
+	font-family: 'Merriweather', serif;
+}
+
+nav li {
+	float: left;
+	margin: 0 20px;
+}
+
+nav li a {
+	color: #fff;
+}
+
+.category {
+	margin: 40px 20px;
+}
+
+/* Page Content */
+
+.category h1 {
+	color: #000;
+	font-size: 24px;
+	line-height: 32px;
+	font-family: 'Merriweather', serif;
+}
+
+.category a {
+	color: #626262;
+}
+
+.category a:hover {
+	color: #000;
+}
+
+.category ul {
+	list-style: none;
+}
+
+.category li {
+	float: left;
+	margin: 35px 44px;
+	font-size: 20px;
+}
+
+.clear {
+	clear: both;
+}
+
+#gallery ul {
+	background: #FDFDFD;
+	border: 1px solid #F0F0F0;
+	   -moz-border-radius: 6px;
+   		 -o-border-radius: 6px;
+	-webkit-border-radius: 6px;
+			border-radius: 6px;
+	float: left;
+	margin: 20px 0px;
+	padding: 20px 26px;
+	list-style: none;
+	text-align: center;
+	zoom:1;
+	width: 865px;
+}
+
+#gallery:before,
+#gallery:after {
+    content:"";
+    display:table;
+}
+
+#gallery:after {
+    clear:both;
+}
+
+#gallery li {
+	display: inline;
+}
+
+.thumbnail {
+	float: left;
+	height: 300;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.photo-text span {
+	font-weight: bold;
+}
+
+.page-content {
+	float: left;
+	height: 300;
+}
+
+.btn {
+	background: -webkit-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -moz-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -o-linear-gradient(top, #4c4f4f, #191f1f);
+	background: linear-gradient(top, #4c4f4f, #191f1f);
+	border: 1px solid #ccc;
+	 -moz-border-radius: 8px;
+       -o-border-radius: 8px;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+	padding: 4px 15px;
+	line-height: 15px;
+	width: 100px;
+	font-family: 'Merriweather', serif;	
+	float: right;
+}
+
+.btn a {
+	color: #fff;
+	font-size: 10px;
+}
+
+.btn a:hover {
+	color: #ddd;
+}
+
+.clearfooter {
+height: 330px;
+clear: both;
+}
+
+th {
+	background: #E0E0E0;
+}
+
+td, th {
+	border-bottom: 1px solid #E0E0E0;
+	padding: 6px 16px;
+	text-align: left;
+}
+
+/* Footer */
+
+footer {
+	height: 330px;
+	position: relative;
+	background: -webkit-linear-gradient(top, #292929, #191f1f);
+}
+
+footer p {
+	color: #fff;
+}
+
+
+/* IE fix*/
+
+#container {
+height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  we need to talk about this!
 
 .text_field {
 height:300px;
@@ -40,3 +369,4 @@ font-family:helvetica;
 	position: relative;
 	top: 1px;
 }
+*/
