@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Category.create(name: "My Younger Years")
+Category.create(name: "Love & Family")  
+Category.create(name: "Lessons Learned") 
+Category.create(name: "Travel")
+
+Question.create(inquiry: "When and where were you born?", category_id: 1)
+Question.create(inquiry: "Where did you grow up?", category_id: 1)
+Question.create(inquiry: "Age of first girlfriend/boyfriend?", category_id: 2)
+Question.create(inquiry: "Have you ever been married?", category_id: 2)
+Question.create(inquiry: "What is the most important lesson you have learned in life?", category_id: 3)
+Question.create(inquiry: "What is a valuable lesson would you share with someone young?",category_id: 3)
+Question.create(inquiry: "Where is your favorite place you have traveled?", category_id: 4)
+Question.create(inquiry: "Where would you like to travel, that you have never visited?", category_id: 4)

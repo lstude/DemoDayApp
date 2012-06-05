@@ -1,0 +1,25 @@
+<h1>Write a Story</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @text_stories.each do |text_story| %>
+  <tr>
+    <td><%= Question.find(text_story.question_id).inquiry %></td>
+    <td><%= text_story.text %></td>
+    <td><%= link_to 'Show', text_story %></td>
+    <td><%= link_to 'Edit', edit_text_story_path(text_story) %></td>
+    <td><%= link_to 'Destroy', text_story, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Text story', new_text_story_path %>

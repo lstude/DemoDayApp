@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= Question.find(@text_story.question_id).inquiry %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @text_story.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_text_story_path(@text_story) %> |
+<%= link_to 'Back', text_stories_path %>
