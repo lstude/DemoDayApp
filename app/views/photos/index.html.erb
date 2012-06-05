@@ -4,7 +4,7 @@
 
 <% @photos.each do |photo| %>
 	<div class="thumbnail">
-		<p><%= image_tag(photo.embed_url, :size => "150x150") %></p>
+		<p><%= image_tag(photo.image_url, :size => "150x150") %></p>
 	</div>
 	<div class="photo-text">
 	    <p>
