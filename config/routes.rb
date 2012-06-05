@@ -8,15 +8,16 @@ DemoDayApp::Application.routes.draw do
 
   resources :categories
   
-  get "write_a_story"  => "categories#write_a_story"
+  get "write_a_story"  => "categories#write_a_story", as: :story
 
   devise_for :users
 
-  root :to => "home#index"
+  root :to => "categories#home"
   
   resources :writes
   
-  get "write_a_photo_story"  =>  "categories#write_a_photo_story"
+  get "write_a_photo_story"  =>  "categories#write_a_photo_story", as: :photo_story
+
   
   
 end
