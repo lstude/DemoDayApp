@@ -1,11 +1,12 @@
 <h1>I want to write about ...</h1>
-
-<div class="category">
-	<% @categories.each do |category| %>
+<div id="gallery">
 	<ul>
+	<% @categories.each do |category| %>
+
 	    <li><%= link_to category.name, new_photo_url( category_id: category.id ), :method  => "get" %></li>
-	  </ul>
+	 
 	<% end %>
+ </ul>
 </div>
 
 <div class="clear"></did>

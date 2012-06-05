@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_field :text %>
-  </div>
-
-  <div class="field">
     <%= f.label :question %><br />
     <% if @questions %>
 		  <%= f.collection_select :question_id, @questions, :id, :inquiry %>
@@ -28,7 +23,13 @@
     <%= f.label :embed_url %><br />
     <%= f.text_field :embed_url %>
   </div>
+
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Photo Story" %>
   </div>
 <% end %>

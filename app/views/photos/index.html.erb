@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Text</th>
     <th>Question</th>
+    <th>Text</th>
     <th>Embed url</th>
     <th></th>
     <th></th>
@@ -12,9 +12,9 @@
 
 <% @photos.each do |photo| %>
   <tr>
+    <td><%= Question.find(photo.question_id).inquiry %></td>
     <td><%= photo.text %></td>
-    <td><%= photo.category_id %></td>
-    <td><%= photo.embed_url %></td>
+    <td class="thumbnail"><%= image_tag(photo.embed_url, :size => "150x150") %></td>
     <td><%= link_to 'Show', photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
     <td><%= link_to 'Destroy', photo, confirm: 'Are you sure?', method: :delete %></td>
