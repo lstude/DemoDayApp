@@ -128,15 +128,12 @@ header .btn {
           border-radius: 8px;
 	padding: 4px 15px;
 	line-height: 15px;	
+	width: 50px;
 }
-
-.btn {
-	color: #fff;
-}
-
 
 header .btn {
-	margin-left: 20px;
+	color: #fff;
+	margin-left: 15px;
 }
 
 /* Nav */
@@ -244,9 +241,45 @@ nav li a {
 	height: 300;
 }
 
+.btn {
+	background: -webkit-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -moz-linear-gradient(top, #4c4f4f, #191f1f);
+	background: -o-linear-gradient(top, #4c4f4f, #191f1f);
+	background: linear-gradient(top, #4c4f4f, #191f1f);
+	border: 1px solid #ccc;
+	 -moz-border-radius: 8px;
+       -o-border-radius: 8px;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+	padding: 4px 15px;
+	line-height: 15px;
+	width: 100px;
+	font-family: 'Merriweather', serif;	
+	float: right;
+}
+
+.btn a {
+	color: #fff;
+	font-size: 10px;
+}
+
+.btn a:hover {
+	color: #ddd;
+}
+
 .clearfooter {
 height: 330px;
 clear: both;
+}
+
+th {
+	background: #E0E0E0;
+}
+
+td, th {
+	border-bottom: 1px solid #E0E0E0;
+	padding: 6px 16px;
+	text-align: left;
 }
 
 /* Footer */
