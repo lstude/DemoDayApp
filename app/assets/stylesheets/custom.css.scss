@@ -57,6 +57,7 @@ body {
   font: 13px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
 .container {
 	background: #fff;
      -moz-border-radius: 5px;
@@ -79,11 +80,6 @@ textarea {
 
 label {
 	font-family: 'Merriweather', serif;
-}
-
-.thumbnail {
-	height: 250px;
-	width: 250px;
 }
 
 /* Header */
@@ -232,6 +228,22 @@ nav li a {
 	display: inline;
 }
 
+.thumbnail {
+	float: left;
+	height: 300;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.photo-text span {
+	font-weight: bold;
+}
+
+.page-content {
+	float: left;
+	height: 300;
+}
+
 .clearfooter {
 height: 330px;
 clear: both;
@@ -245,7 +257,7 @@ footer {
 	background: -webkit-linear-gradient(top, #292929, #191f1f);
 }
 
-p {
+footer p {
 	color: #fff;
 }
 
