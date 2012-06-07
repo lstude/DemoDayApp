@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<header>
-			<h1><a href="#">eLEGACY</a></h1>
+			<h1><a href="<%= root_url %>">eLEGACY</a></h1>
 				<% if current_user %>
 				<ul>
 					<li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete %></li>
@@ -30,7 +30,7 @@
 	          <li><a href="/">Home</a></li>
 	          <li><a href="/write_a_story">Write a Story</a></li>
 	          <li><a href="/write_a_photo_story">Upload a Photo Story</a></li>
-	          <li><a href="#">Record a Video Story</a></li>
+	          <li><a href="/videos">Record a Video Story</a></li>
 				<% if current_user %>
 			
 				<li><a href="/profile">View All My Stories</a></li>

@@ -1,5 +1,7 @@
 DemoDayApp::Application.routes.draw do
   
+  resources :videos
+
   resources :profile, :only => :index
   
   resources :photos
@@ -19,6 +21,8 @@ DemoDayApp::Application.routes.draw do
   resources :writes
   
   get "write_a_photo_story"  =>  "categories#write_a_photo_story", as: :photo_story
+  
+  get "record_a_video_story"  =>  "categories#record_a_video_story", as: :video_story
 
   
   
