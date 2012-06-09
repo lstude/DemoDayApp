@@ -49,7 +49,7 @@ class TextStoriesController < ApplicationController
 
     respond_to do |format|
       if @text_story.save
-        format.html { redirect_to @text_story, notice: 'Text story was successfully created.' }
+        format.html { redirect_to profile_index_url, notice: 'Text story was successfully created.' }
         format.json { render json: @text_story, status: :created, location: @text_story }
       else
         format.html { render action: "new" }

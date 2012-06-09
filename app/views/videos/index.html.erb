@@ -1,0 +1,129 @@
+<h1>Record Your Video Story</h1>
+
+<!-- <table>
+  <tr>
+    <th>Index</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%# @videos.each do |video| %>
+  <tr>
+    <td><%#= video.index %></td>
+    <td><%#= link_to 'Show', video %></td>
+    <td><%#= link_to 'Edit', edit_video_path(video) %></td>
+    <td><%#= link_to 'Destroy', video, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<%# end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Video', new_video_path %> -->
+
+<%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>
+
+<script>
+	var recorderManager;
+	var recorder;
+	var player;
+	var recImgData;
+
+	var API_KEY = "<%= @api_key %>";  // OpenTok sample code key. Replace with your own API key.
+	var TOKEN = 'moderator_token';
+
+	var VIDEO_HEIGHT = 240;
+	var VIDEO_WIDTH = 320;
+
+	// Un-comment either of the following to set automatic logging and exception handling.
+	// See the exceptionHandler() method below.
+	TB.setLogLevel(TB.DEBUG);
+	TB.addEventListener('exception', exceptionHandler);
+
+	function init() {
+		recorderManager = TB.initRecorderManager(API_KEY);
+		createRecorder();
+	}
+
+	function createRecorder() {
+		var recDiv = document.createElement('div');
+		recDiv.setAttribute('id', 'recorderElement');
+		document.getElementById('recorderContainer').appendChild(recDiv);
+		recorder = recorderManager.displayRecorder(TOKEN, recDiv.id);
+		recorder.addEventListener('recordingStarted', recStartedHandler);
+		recorder.addEventListener('archiveSaved', archiveSavedHandler);
+	}
+
+	function getImg(imgData) {
+		var img = document.createElement('img');
+		img.setAttribute('src', 'data:image/png;base64,' + imgData);
+		return img;
+	}
+
+	function loadArchiveInPlayer(archiveId) {
+		if (!player) {
+			playerDiv = document.createElement('div');
+			playerDiv.setAttribute('id', 'playerElement');
+			document.getElementById('playerContainer').appendChild(playerDiv);
+			player = recorderManager.displayPlayer(archiveId, TOKEN, playerDiv.id);
+			document.getElementById('playerContainer').style.display = 'block';
+		} else {
+			player.loadArchive(archiveId);
+		}
+	}
+
+	//--------------------------------------
+	//  OPENTOK EVENT HANDLERS
+	//--------------------------------------
+
+	function recStartedHandler(event) {
+		recImgData = recorder.getImgData();
+	}
+
+	function archiveSavedHandler(event) {
+		document.getElementById('archiveList').style.display = 'block';
+		var aLink = document.createElement('a');
+		aLink.setAttribute('href',
+							"javascript:loadArchiveInPlayer(\'" + event.archives[0].archiveId + "\')");
+		var recImg = getImg(recImgData);
+		recImg.setAttribute('style', 'width:80; height:60; margin-right:2px');
+		aLink.appendChild(recImg);
+		document.getElementById('archiveList').appendChild(aLink);
+	}
+
+	function archiveLoadedHandler(event) {
+		archive = event.archives[0];
+		archive.startPlayback();
+	}
+
+	/*
+	If you un-comment the call to TB.addEventListener('exception', exceptionHandler) above, OpenTok calls the
+	exceptionHandler() method when exception events occur. You can modify this method to further process exception events.
+	If you un-comment the call to TB.setLogLevel(), above, OpenTok automatically displays exception event messages.
+	*/
+	function exceptionHandler(event) {
+		alert('Exception: ' + event.code + '::' + event.message);
+	}
+	$(document).ready(function(){
+		init();	
+	})
+</script>
+
+	<div id="opentokwrapper">
+	<div id="recorderContainer" style="float:left; height:340px; width 329px; margin-right:8px; margin-top:40px">
+				<!--<p>&nbsp;</p>
+				 <p>Allow access to your recorder and press the red record button:</p> 
+				<p>&nbsp;</p> -->
+
+			</div>
+		
+			<div id="playerContainer" style="float:left; height:340px; width 320px; display:none">
+				<p>Watch your video:</p>
+			</div>
+			<div style="clear:both; margin"></div>
+			<div id="archiveList" style="height:100px; display:none">
+				<p>Recording Archive (click to play):</p>
+			</div>
+	</div>
+

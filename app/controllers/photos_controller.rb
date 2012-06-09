@@ -6,12 +6,12 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
-
+    
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @photos }
+        format.html # index.html.erb
+        format.json { render json: @photos }
+      end
     end
-  end
 
   # GET /photos/1
   # GET /photos/1.json
@@ -48,7 +48,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        format.html { redirect_to profile_index_url, notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
       else
         format.html { render action: "new" }
