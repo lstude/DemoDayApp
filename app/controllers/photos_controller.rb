@@ -6,12 +6,12 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
-
+    
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @photos }
+        format.html # index.html.erb
+        format.json { render json: @photos }
+      end
     end
-  end
 
   # GET /photos/1
   # GET /photos/1.json
