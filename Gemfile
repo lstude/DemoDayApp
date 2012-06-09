@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'sqlite3'
 gem 'devise'
 gem "rmagick"
 gem 'carrierwave'
@@ -19,6 +18,10 @@ end
 
 group :production do
 	gem 'pg'
+end
+
+group :development do
+	gem 'sqlite3'
 end
 
 gem 'jquery-rails'
