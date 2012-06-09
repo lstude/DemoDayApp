@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   
   has_many :photos
   has_many :text_stories
+  has_many :videos
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
