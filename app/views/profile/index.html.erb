@@ -20,3 +20,46 @@
 	<%= truncate(s.text, :length => 100, :omission => '...(read more)') %>
 	<hr style="border: 1px solid #333" />
 <% end %>
+
+
+<% @user.videos.each do |video| %>
+	
+  <a href="#" id="link-<%= video.archive_id %>" class="link-to-video">See video!</a>
+	<hr style="border: 1px solid #333" />
+	
+	
+<% end %>
+
+<%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>
+
+<script>
+	var recorderManager;
+	var recorder;
+	var player;
+	var recImgData;
+
+	var API_KEY = "<%= @api_key %>";  // OpenTok sample code key. Replace with your own API key.
+	var TOKEN = 'moderator_token';
+
+	var VIDEO_HEIGHT = 240;
+	var VIDEO_WIDTH = 320;
+
+	function init() {
+		recorderManager = TB.initRecorderManager(API_KEY);
+	}
+
+	function loadArchiveInPlayer(archiveId) {
+	  var div = $('body').append('<div />', { id: 'video-' + archiveId });
+		recorderManager.displayPlayer(archiveId, TOKEN, 'video-' + archiveId);
+	}
+
+	$(document).ready(function(){
+	  $('.link-to-video').click(function(e){
+      e.preventDefault()
+	    var archiveId = $(this).attr('id').replace('link-', '');
+	    loadArchiveInPlayer(archiveId);
+	  });
+
+		init();	
+	})
+</script>
