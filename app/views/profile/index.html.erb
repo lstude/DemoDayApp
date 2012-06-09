@@ -1,3 +1,5 @@
+<% title "View Your Stories" %>
+
 <h1>Hello, <%= @user.first %>!</h1>
 
 <h2>Below are the stories you've created thus far. Click each one to view in more detail.</h2>
@@ -6,7 +8,7 @@
 <% @user.text_stories.each do |s| %>
 	<hr style="border: 1px solid #333" />
 	<%= s.question.inquiry %>
-	<%= s.text %>
+	<%= truncate(s.text, :length => 100, :omission => '...(read more)') %>
 	<hr style="border: 1px solid #333" />
 <% end %>
 
@@ -15,5 +17,6 @@
 	<hr style="border: 1px solid #333" />
 	<%= s.question.inquiry %>
 	<%= image_tag(s.image_url(:thumb)) %>
+	<%= truncate(s.text, :length => 100, :omission => '...(read more)') %>
 	<hr style="border: 1px solid #333" />
 <% end %>

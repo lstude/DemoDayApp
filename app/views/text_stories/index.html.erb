@@ -14,7 +14,7 @@
 <% @text_stories.each do |text_story| %>
   <tr>
     <td><%= Question.find(text_story.question_id).inquiry %></td>
-    <td><%= text_story.text %></td>
+    
     <td><%= link_to 'Show', text_story %></td>
     <td><%= link_to 'Edit', edit_text_story_path(text_story) %></td>
     <td><%= link_to 'Destroy', text_story, confirm: 'Are you sure?', method: :delete %></td>
