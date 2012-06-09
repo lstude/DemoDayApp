@@ -22,11 +22,9 @@ ActiveRecord::Schema.define(:version => 20120609162157) do
   create_table "photos", :force => true do |t|
     t.string   "text"
     t.integer  "question_id"
-    t.string   "embed_url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
-    t.string   "image"
   end
 
   create_table "questions", :force => true do |t|
