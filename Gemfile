@@ -5,6 +5,7 @@ gem 'devise'
 gem "rmagick"
 gem 'carrierwave'
 gem 'opentok'
+gem 'font-awesome-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
