@@ -1,34 +1,39 @@
 <% title "View Your Stories" %>
 
-<h1>Hello, <%= @user.first %>!</h1>
+<hgroup>
+  <h1>Hello, <%= @user.first %>!</h1>
+  <h2>Below are the stories you've created thus far. Click each one to view in more detail.</h2>
+</hgroup>
 
-<h2>Below are the stories you've created thus far. Click each one to view in more detail.</h2>
+<section>
+  <h1>Your Text Stories:</h1>
+  <% @user.text_stories.each do |s| %>
+  	<h3><%= s.question.inquiry %></h3>
+  	<p><%= truncate(s.text, :length => 100, :omission => '...(read more)') %></p>
+  <% end %>
+</section>
 
+<section>
+  <h1>Your Photo Stories:</h1>
+  <% @user.photos.each do |s| %>
+  	<h3><%= s.question.inquiry %></h3>
+  	<figure>
+    	<%= image_tag(s.image_url(:thumb)) %>
+    	<figcaption><%= truncate(s.text, :length => 100, :omission => '...(read more)') %><figcaption>
+  	</figure>
+  <% end %>
+</section>
 
-<% @user.text_stories.each do |s| %>
-	<hr style="border: 1px solid #333" />
-	<%= s.question.inquiry %>
-	<%= truncate(s.text, :length => 100, :omission => '...(read more)') %>
-	<hr style="border: 1px solid #333" />
-<% end %>
-
-
-<% @user.photos.each do |s| %>
-	<hr style="border: 1px solid #333" />
-	<%= s.question.inquiry %>
-	<%= image_tag(s.image_url(:thumb)) %>
-	<%= truncate(s.text, :length => 100, :omission => '...(read more)') %>
-	<hr style="border: 1px solid #333" />
-<% end %>
-
-
-<% @user.videos.each do |video| %>
-	
-  <a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
-	<hr style="border: 1px solid #333" />
-	
-	
-<% end %>
+<section>
+  <h1>Your Video Stories:</h1>
+  <% @user.videos.each do |video| %>
+    <h3>Video Question</h3>
+  	<figure>
+    	<a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
+    	<figcaption>Video caption<figcaption>
+  	</figure>
+  <% end %>
+</section>
 
 <%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>
 
