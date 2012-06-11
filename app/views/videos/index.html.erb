@@ -88,14 +88,17 @@
 	}
 
 	function archiveSavedHandler(event) {
-		document.getElementById('archiveList').style.display = 'block';
-		var aLink = document.createElement('a');
-		aLink.setAttribute('href',
-							"javascript:loadArchiveInPlayer(\'" + event.archives[0].archiveId + "\')");
-		var recImg = getImg(recImgData);
-		recImg.setAttribute('style', 'width:80; height:60; margin-right:2px');
-		aLink.appendChild(recImg);
-		document.getElementById('archiveList').appendChild(aLink);
+    // document.getElementById('archiveList').style.display = 'block';
+    // var aLink = document.createElement('a');
+    // aLink.setAttribute('href',
+    //          "javascript:loadArchiveInPlayer(\'" + event.archives[0].archiveId + "\')");
+    // var recImg = getImg(recImgData);
+    // recImg.setAttribute('style', 'width:80; height:60; margin-right:2px');
+    // aLink.appendChild(recImg);
+    // document.getElementById('archiveList').appendChild(aLink);
+		
+		// save to our database
+	  saveArchiveId(event.archives[0].archiveId);
 	}
 
 	function archiveLoadedHandler(event) {
@@ -125,7 +128,7 @@
        archive_id: id 
       }}
     }).success(function(){
-      alert("SUCCESSFUL")
+      window.location.href = "/profile";
     }).fail(function(){
       alert("FAILED")
     });

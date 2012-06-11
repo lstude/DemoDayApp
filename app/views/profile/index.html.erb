@@ -24,7 +24,7 @@
 
 <% @user.videos.each do |video| %>
 	
-  <a href="#" id="link-<%= video.archive_id %>" class="link-to-video">See video!</a>
+  <a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
 	<hr style="border: 1px solid #333" />
 	
 	
@@ -45,21 +45,35 @@
 	var VIDEO_WIDTH = 320;
 
 	function init() {
-		recorderManager = TB.initRecorderManager(API_KEY);
+    recorderManager = TB.initRecorderManager(API_KEY);
 	}
 
 	function loadArchiveInPlayer(archiveId) {
-	  var div = $('body').append('<div />', { id: 'video-' + archiveId });
-		recorderManager.displayPlayer(archiveId, TOKEN, 'video-' + archiveId);
+    //    var div = $('body').append('<div />', { id: 'video-' + archiveId });
+    // recorderManager.displayPlayer(archiveId, TOKEN, 'video-' + archiveId);
 	}
 
-	$(document).ready(function(){
-	  $('.link-to-video').click(function(e){
-      e.preventDefault()
-	    var archiveId = $(this).attr('id').replace('link-', '');
-	    loadArchiveInPlayer(archiveId);
-	  });
+	function loadPlayer(archiveId){
+    recorderManager.displayPlayer(archiveId, 'moderator_token', 'video-' + archiveId);
+  }
+  
+  function loadPlayers(ids){
+    $.each(ids, function(index,archiveId){
+      loadPlayer(archiveId);
+    });
+  }
 
-		init();	
-	})
+	$(document).ready(function(){
+    //    $('.link-to-video').click(function(e){
+    //       e.preventDefault()
+    //      var archiveId = $(this).attr('id').replace('link-', '');
+    //      loadArchiveInPlayer(archiveId);
+    //    });
+    // 
+    init();
+    
+    ids = new Array("<%= raw(@user.videos.map{|v| v.archive_id}.join('","')) %>");
+    
+    loadPlayers(ids);
+	});
 </script>
