@@ -16,9 +16,14 @@ body {
   line-height: 1;
 }
 
-h1 {
+h1, h2 {
 	font-family: 'Merriweather', serif;
 }
+
+h2 {
+	font-size: 18px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -230,11 +235,17 @@ nav li a {
 	float: left;
 	height: 300;
 	margin-right: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .photo-text span {
 	font-weight: bold;
+}
+
+.photo {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-top: 10px;	
 }
 
 .page-content {
@@ -281,6 +292,14 @@ td, th {
 	border-bottom: 1px solid #E0E0E0;
 	padding: 6px 16px;
 	text-align: left;
+}
+
+.stories {
+	margin-top: 50px;
+}
+
+.photos {
+	margin-top: 50px;
 }
 
 /* Footer */

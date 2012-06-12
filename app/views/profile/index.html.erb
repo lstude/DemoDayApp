@@ -2,24 +2,79 @@
 
 <h1>Hello, <%= @user.first %>!</h1>
 
-<h2>Below are the stories you've created thus far. Click each one to view in more detail.</h2>
+<p>Below are the stories you've created thus far. Click each one to view in more detail.</p>
+<div class="stories">
+	<h2>Write a Story</h2>
 
+	<table>
+	  <tr>
+	    <th>Question</th>
+	    <th>Story</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+			<th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
 
-<% @user.text_stories.each do |s| %>
-	<hr style="border: 1px solid #333" />
-	<%= s.question.inquiry %>
-	<%= truncate(s.text, :length => 100, :omission => '...(read more)') %>
-	<hr style="border: 1px solid #333" />
-<% end %>
+	<% @user.text_stories.each do |text_story| %>
+	  <tr>
+	    <td><%= Question.find(text_story.question_id).inquiry %></td>
+    
+	    <td><%= link_to 'Show', text_story %></td>
+	    <td><%= link_to 'Edit', edit_text_story_path(text_story) %></td>
+	    <td><%= link_to 'Destroy', text_story, confirm: 'Are you sure?', method: :delete %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
 
+<%# @user.text_stories.each do |s| %>
+	<!-- <hr style="border: 1px solid #333" /> -->
+	<%#= s.question.inquiry %>
+	<%#= truncate(s.text, :length => 100, :omission => '...(read more)') %>
+	<!-- <hr style="border: 1px solid #333" /> -->
+<%# end %>
+<div class="photos">
+	<h2>Listing photos</h2>
 
-<% @user.photos.each do |s| %>
-	<hr style="border: 1px solid #333" />
-	<%= s.question.inquiry %>
-	<%= image_tag(s.image_url(:thumb)) %>
-	<%= truncate(s.text, :length => 100, :omission => '...(read more)') %>
-	<hr style="border: 1px solid #333" />
-<% end %>
+	<% @user.photos.each do |photo| %>
+		<div class="photo">
+		<div class="thumbnail">
+			<p><%= image_tag(photo.image_url(:thumb)) %></p>
+		</div>
+		<div class="photo-text">
+		    <p>
+						<span>Question:</span>
+						<%= Question.find(photo.question_id).inquiry %>
+				</p>
+		    <p>
+						<span>Story:</span>
+						<%= photo.text %>
+				</p>
+				<p>
+						<%= link_to 'Show', photo %> | <%= link_to 'Edit', 	
+						edit_photo_url(photo) %> | <%= link_to 'Destroy', 		
+						photo, confirm: 'Are you sure?', method: :delete %>
+				</p>
+				</div>
+				<div class="clear"></div>
+				</div>
+	<% end %>
+</div>
+
+<%# @user.photos.each do |s| %>
+	<!-- <hr style="border: 1px solid #333" /> -->
+	<%#= s.question.inquiry %>
+	<%#= image_tag(s.image_url(:thumb)) %>
+	<%#= truncate(s.text, :length => 100, :omission => '...(read more)') %>
+	<!-- <hr style="border: 1px solid #333" /> -->
+<%# end %>
 
 
 <% @user.videos.each do |video| %>
