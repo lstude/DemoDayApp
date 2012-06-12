@@ -8,10 +8,8 @@
   <h1>Your Text Stories:</h1>
   <% @user.text_stories.each do |s| %>
   	<h3><%= s.question.inquiry %></h3>
-  	<p><%= truncate(s.text, :length => 100, :omission => '...(read more)') %></p>
-		<p><%= link_to 'Show', text_story %></p>
-    <p><%= link_to 'Edit', edit_text_story_path(text_story) %></p>
-    <p><%= link_to 'Destroy', text_story, confirm: 'Are you sure?', method: :delete %></p>
+  	<p><%= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %></p>
+		<p><%= link_to 'Show', s %> | <%= link_to 'Edit', edit_text_story_path(s) %> | <%= link_to 'Destroy', s, confirm: 'Are you sure?', method: :delete %></p>
   <% end %>
 </section>
 
@@ -21,13 +19,12 @@
   	<h3><%= s.question.inquiry %></h3>
   	<figure>
     	<%= image_tag(s.image_url(:thumb)) %>
-    	<figcaption><%= truncate(s.text, :length => 100, :omission => '...(read more)') %><figcaption>
+    	<figcaption><%= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %><figcaption>
   	</figure>
- <!-- Added in links  -->
 		<p>
-				<%= link_to 'Show', photo %> | <%= link_to 'Edit', 	
-				edit_photo_url(photo) %> | <%= link_to 'Destroy', 		
-				photo, confirm: 'Are you sure?', method: :delete %>
+				<%= link_to 'Show', s %> | <%= link_to 'Edit', 	
+				edit_photo_url(s) %> | <%= link_to 'Destroy', 		
+				s, confirm: 'Are you sure?', method: :delete %>
 		</p>
   <% end %>
 </section>
