@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>eLegacy - <%= yield (:title) || "Demo Day App" %></title>
+  	<link href='http://fonts.googleapis.com/css?family=Merriweather:700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  	<div class="container">
+  	
+      <header>
+      	<h1><a href="<%= root_url %>">eLEGACY</a></h1>
+      		<ul>
+      			<% if current_user %>
+      				<li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete %></li>
+      			<% else %>
+      				<li><%= link_to 'SIGN IN', new_user_session_path %></li>
+      				<li><%= link_to 'SIGN UP', new_user_registration_path, :class => 'btn' %></li>
+      			<% end %>
+      		</ul>				
+      </header>
 
-  <title>eLegacy - <%= yield (:title) || "Demo Day App" %></title>
-	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,900,300' rel='stylesheet' type='text/css'>
+      <nav>
+      	 <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/write_a_story">Write a Story</a></li>
+            <li><a href="/write_a_photo_story">Upload a Photo Story</a></li>
+            <li><a href="/videos">Record a Video Story</a></li>
+      			<% if current_user %>
+        			<li><a href="/profile">View All My Stories</a></li>
+      			<% end %>
+      	</ul>
+      </nav>
 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div class="container">
-		<header>
-			<h1><a href="<%= root_url %>">eLEGACY</a></h1>
-				<% if current_user %>
-				<ul>
-					<li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete %></li>
-				</ul>
-				<% else %>
-				<ul>
-					<li><%= link_to 'SIGN IN', new_user_session_path %></li>
-					<li><%= link_to 'SIGN UP', new_user_registration_path, :class => 'btn' %></li>
-				</ul>
-				<% end %>
-		</header>
-			
-			<nav>
-				 <ul>
-	          <li><a href="/">Home</a></li>
-	          <li><a href="/write_a_story">Write a Story</a></li>
-	          <li><a href="/write_a_photo_story">Upload a Photo Story</a></li>
-	          <li><a href="/videos">Record a Video Story</a></li>
-				<% if current_user %>
-			
-				<li><a href="/profile">View All My Stories</a></li>
-				
-				<% end %>
-				</ul>
-			</nav>
-			
-	<p class="notice"><%= notice %></p>
-	       <p class="alert"><%= alert %></p>
-		<div class="category">
-			<%= yield %>
-		</div>
-		<div class="clearfooter"></div>
-		<footer>
-			<p>This is the Footer</p>
-		</footer>
-	</div>
-</body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <div class="category">
+        <%= yield %>
+      </div>
+
+      <footer>
+        <p>This is the Footer</p>
+      </footer>
+		
+  	</div><!-- .container -->
+
+  </body>
 </html>

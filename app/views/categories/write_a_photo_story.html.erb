@@ -1,18 +1,11 @@
 <% title "Upload a Photo Story" %>
 
 <h1>I want to upload a photo related to ...</h1>
-<div id="gallery">
-	<ul>
-	<% @categories.each do |category| %>
-
-	    <li><%= link_to category.name, new_photo_url( category_id: category.id ), :method  => "get" %></li>
-	 
-	<% end %>
- </ul>
-</div>
-
-<div class="clear"></did>
+<ul class="categories">
+  <% @categories.each do |category| %>
+    <li><%= link_to category.name, new_photo_url( category_id: category.id ), :method  => "get" %></li>
+  <% end %>
+</ul>
 
 <p><%= link_to 'New Category', new_category_path %></p>
-
 <p><%= link_to 'My Photo Stories', photos_url %></p>
