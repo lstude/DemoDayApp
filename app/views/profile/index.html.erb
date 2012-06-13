@@ -1,5 +1,4 @@
 <% title "View Your Stories" %>
-
 <hgroup>
   <h1>Hello, <%= @user.first %>!</h1>
   <h2>Below are the stories you've created thus far. Click each one to view in more detail.</h2>
@@ -7,32 +6,52 @@
 
 <section>
   <h1>Your Text Stories:</h1>
-  <% @user.text_stories.each do |s| %>
-  	<h3><%= s.question.inquiry %></h3>
-  	<p><%= truncate(s.text, :length => 100, :omission => '...(read more)') %></p>
+  	<% @user.text_stories.each do |s| %>
+  		<div class="title">
+				<h3><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
+			</div>
+  	<!-- <div class="readMore"><%= raw(truncate(s.text, :length => 100, :omission => " Read More")) %></div> -->
+			<div class="readMore">
+				<p><%= s.text %></p>
+				<p><%= link_to 'Show', s %> | <%= link_to 'Edit', edit_text_story_path(s) %> | <%= link_to 'Destroy', s, confirm: 'Are you sure?', method: :delete %></p>
+			</div>
   <% end %>
 </section>
 
 <section>
   <h1>Your Photo Stories:</h1>
   <% @user.photos.each do |s| %>
-  	<h3><%= s.question.inquiry %></h3>
+		<div class="title">
+  		<h3><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
+		</div>
+		<div class="readMore">
   	<figure>
     	<%= image_tag(s.image_url(:thumb)) %>
-    	<figcaption><%= truncate(s.text, :length => 100, :omission => '...(read more)') %><figcaption>
+			<%= s.text %>
+    	<!-- <figcaption><%= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %><figcaption> -->
   	</figure>
+		<p>
+				<%= link_to 'Show', s %> | <%= link_to 'Edit', 	
+				edit_photo_url(s) %> | <%= link_to 'Destroy', 		
+				s, confirm: 'Are you sure?', method: :delete %>
+		</p>
+		</div>
   <% end %>
 </section>
 
 <section>
   <h1>Your Video Stories:</h1>
   <% @user.videos.each do |video| %>
-    <h3>Video Question</h3>
+	<div class="title">
+    <h3>Video Question<span> Click to read more and edit</span></h3>
+	</div>
+	<div class="readMore">
   	<figure>
     	<a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
     	<figcaption>Video caption
     	  <figcaption>
   	</figure>
+	</div>
   <% end %>
 </section>
 

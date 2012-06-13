@@ -16,9 +16,14 @@ body {
   line-height: 1;
 }
 
-/*h1 {
-  font-family: 'Merriweather', serif;
-}*/
+h1, h2 {
+	font-family: 'Merriweather', serif;
+}
+
+h2 {
+	font-size: 18px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -256,11 +261,17 @@ nav li a {
 	float: left;
 	height: 300;
 	margin-right: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .photo-text span {
 	font-weight: bold;
+}
+
+.photo {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-top: 10px;	
 }
 
 .page-content {
@@ -278,6 +289,14 @@ td, th {
 	text-align: left;
 }
 
+.stories {
+	margin-top: 50px;
+}
+
+.photos {
+	margin-top: 50px;
+}
+
 /* Footer */
 
 footer {
@@ -292,6 +311,12 @@ footer {
 footer p {
 	color: #fff;
 	width: 92px;
+}
+
+.title span {
+	color: orange;
+	font-style: italic;
+	font-weight: normal;
 }
 
 
@@ -381,6 +406,7 @@ section {
   }
 }
 
+
 .devisebtn {
    text-shadow: 0 1px 0 white;
     border: 1px solid #D0D2D5;
@@ -439,42 +465,4 @@ input {
 }
 
 
-/*  we need to talk about this - what does it apply to
 
-.text_field {
-height:300px;
-width:300px
-}
-
-h1, h2 {
-font-family:helvetica;
-}
-
-li {
-font-family:helvetica;
-}
-
-.button1 {
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	font: 14px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-}
-.button:hover {
-	text-decoration: none;
-}
-.button:active {
-	position: relative;
-	top: 1px;
-}
-*/
