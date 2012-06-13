@@ -130,12 +130,13 @@
       url: '/videos',
       type: 'POST',
       data: { video: {
-       archive_id: id 
+       question_id: $('#video_question_id').val(),
+ 	   archive_id: id
       }}
-    }).success(function(){
+     }).success(function(){
       window.location.href = "/profile";
-    }).fail(function(){
-      alert("FAILED")
+     }).fail(function(){
+       alert("FAILED")
     });
   }
 </script>

@@ -59,6 +59,7 @@ class VideosController < ApplicationController
     @video = Video.new
     @video.user_id = current_user.id
     @video.archive_id = params[:video][:archive_id]
+    @video.question_id = params[:video][:question_id]
     
     current_user.videos << @video
 
