@@ -8,7 +8,7 @@
   <h1>Your Text Stories:</h1>
   	<% @user.text_stories.each do |s| %>
   		<div class="title">
-				<h3><%= s.question.inquiry %></h3>
+				<h3><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
 			</div>
   	<!-- <div class="readMore"><%= raw(truncate(s.text, :length => 100, :omission => " Read More")) %></div> -->
 			<div class="readMore">
@@ -21,27 +21,36 @@
 <section>
   <h1>Your Photo Stories:</h1>
   <% @user.photos.each do |s| %>
-  	<h3><%= s.question.inquiry %></h3>
+		<div class="title">
+  		<h3><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
+		</div>
+		<div class="readMore">
   	<figure>
     	<%= image_tag(s.image_url(:thumb)) %>
-    	<figcaption><%= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %><figcaption>
+			<%= s.text %>
+    	<!-- <figcaption><%= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %><figcaption> -->
   	</figure>
 		<p>
 				<%= link_to 'Show', s %> | <%= link_to 'Edit', 	
 				edit_photo_url(s) %> | <%= link_to 'Destroy', 		
 				s, confirm: 'Are you sure?', method: :delete %>
 		</p>
+		</div>
   <% end %>
 </section>
 
 <section>
   <h1>Your Video Stories:</h1>
   <% @user.videos.each do |video| %>
-    <h3>Video Question</h3>
+	<div class="title">
+    <h3>Video Question<span> Click to read more and edit</span></h3>
+	</div>
+	<div class="readMore">
   	<figure>
     	<a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
     	<figcaption>Video caption<figcaption>
   	</figure>
+	</div>
   <% end %>
 </section>
 
