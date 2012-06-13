@@ -1,22 +1,19 @@
-<%= form_for(@video) do |f| %>
-  <% if @video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+<div id="video">
+	<%= form_for(@video) do |f| %>
+	  <% if @video.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
-      <ul>
-      <% @video.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	      <ul>
+	      <% @video.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
 
-  <div class="field">
-	  <%= f.collection_select :question_id, @questions, :id, :inquiry %>
-    <%# f.label :archive_id %><br />
-    <%# f.text_field :archive_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	  <div class="field">
+		<%= f.collection_select :question_id, @questions, :id, :inquiry %>
+	  </div>
+	<% end %>
+</div>

@@ -157,6 +157,26 @@ nav li a {
 	color: #fff;
 }
 
+nav a:hover {
+	color: orange;
+}
+
+nav a:active {
+	text-shadow: -1px -1px -1px #555;
+	position:relative;
+	top: 1px;
+	left: 1px;
+}
+
+/*still working on active states*/
+div#home a.home-nav,
+div#photo a.photo-nav,
+div#story a.story-nav,
+div#video a.video-nav,
+div#profile a.profile-nav {
+	color: orange;
+}
+
 .category {
 	margin: 40px 20px;
 	width: 920px;
@@ -208,7 +228,7 @@ nav li a {
     display: block;
     padding: 52px 0;
     height: 98px;
-    width: 292px;
+    width: 291px;
     margin: 0 10px;
 	  font-size: 24px;
 	  float: left;
@@ -269,8 +289,8 @@ nav li a {
 }
 
 .photo {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	/*border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;*/
 	padding-top: 10px;	
 }
 
@@ -310,6 +330,13 @@ footer {
 
 footer p {
 	color: #fff;
+	width: 92px;
+}
+
+.title span {
+	color: orange;
+	font-style: italic;
+	font-weight: normal;
 }
 
 
@@ -398,3 +425,64 @@ section {
     
   }
 }
+
+
+.devisebtn {
+   text-shadow: 0 1px 0 white;
+    border: 1px solid #D0D2D5;
+    border-bottom-color: #C6C9CC;
+    display: inline-block;
+    margin: 10px;
+    padding: 1px 0;
+    font-size: 18px;
+        background: -ms-linear-gradient(top, white, #E8EAE9);
+    background: -webkit-linear-gradient(top, white, #E8EAE9);
+         background: -o-linear-gradient(top, white, #E8EAE9);
+       background: -moz-linear-gradient(top, white, #E8EAE9);
+            background: linear-gradient(top, white, #E8EAE9);
+        -ms-border-radius: 6px;
+    -webkit-border-radius: 6px;
+         -o-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+    text-align: center;
+    width: 152px;
+
+    &:hover {
+      color: orange;
+    }
+}
+
+#error_explanation {
+  color: #D02125;
+  margin-bottom: 15px;
+  
+  h2 {
+    color: #D02125;
+  }
+  
+  ul li {
+    color: #D02125;
+  }
+}
+
+
+input {
+  padding: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.loginform label {
+    line-height: 33px;
+    margin-right: 10px;
+  }
+  
+#text_story_question_id {
+  overflow: none;
+  font-size: 24px;
+}
+
+
+
