@@ -38,11 +38,9 @@
   <h1>Your Video Stories:</h1>
   <% @user.videos.each do |video| %>
     <h3>Video Question</h3>
-
   	<figure>  
     	<a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
 	 <figcaption>Video caption<figcaption>
-
   	</figure>
   <% end %>
 </section>
