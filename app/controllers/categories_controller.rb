@@ -3,6 +3,10 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   
   before_filter :authenticate_user!
+
+  def record_a_video_story
+    @categories = Category.all
+  end
   
   def write_a_photo_story
     @categories = Category.all

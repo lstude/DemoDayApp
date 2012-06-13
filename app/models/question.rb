@@ -4,4 +4,5 @@ class Question < ActiveRecord::Base
   belongs_to :category
   has_many :text_stories
   has_many :photos
+  has_many :videos
 end

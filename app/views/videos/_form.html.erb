@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+	  <%= f.collection_select :question_id, @questions, :id, :inquiry %>
     <%# f.label :archive_id %><br />
     <%# f.text_field :archive_id %>
   </div>

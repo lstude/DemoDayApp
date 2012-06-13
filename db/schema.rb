@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610002042) do
+ActiveRecord::Schema.define(:version => 20120613034502) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -64,10 +64,11 @@ ActiveRecord::Schema.define(:version => 20120610002042) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "videos", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
     t.string   "archive_id"
+    t.integer  "question_id"
   end
 
   create_table "writes", :force => true do |t|
