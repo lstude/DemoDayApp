@@ -15,4 +15,6 @@ class ApplicationController < ActionController::Base
 
     @token = @opentok.generate_token :session_id => @session_id, :role => OpenTok::RoleConstants::PUBLISHER, :connection_data => "username=Bob, level=4"
   end
+  
+ 
 end
