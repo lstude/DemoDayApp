@@ -12,6 +12,8 @@ class VideosController < ApplicationController
     #    @token = @opentok.generate_token :session_id => @session_id, :role => OpenTok::RoleConstants::PUBLISHER, :connection_data => "username=Bob, level=4"
    
     @videos = Video.all
+    @video = Video.new
+    @questions = Question.find_all_by_category_id(params[:category_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,6 +36,7 @@ class VideosController < ApplicationController
   # GET /videos/new.json
   def new
     @video = Video.new
+    @questions = Question.find_all_by_category_id(params[:category_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -56,6 +59,7 @@ class VideosController < ApplicationController
     @video = Video.new
     @video.user_id = current_user.id
     @video.archive_id = params[:video][:archive_id]
+    @video.question_id = params[:video][:question_id]
     
     current_user.videos << @video
 

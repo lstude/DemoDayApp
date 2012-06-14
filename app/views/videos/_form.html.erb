@@ -13,13 +13,7 @@
 	  <% end %>
 
 	  <div class="field">
-	    <%# f.label :archive_id %><br />
-	    <%# f.text_field :archive_id %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit %>
+		<%= f.collection_select :question_id, @questions, :id, :inquiry %>
 	  </div>
 	<% end %>
 </div>
-
-
