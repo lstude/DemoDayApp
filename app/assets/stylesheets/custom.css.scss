@@ -148,34 +148,39 @@ nav {
 	font: 14px/30px 'Merriweather', serif;
 }
 
+
+
+
+
 nav li {
 	float: left;
 	margin: 0 20px;
 }
 
-nav li a {
+nav ul li a {
 	color: #fff;
 }
 
-nav a:hover {
+nav ul li a:hover {
 	color: orange;
 }
 
-nav a:active {
+nav li a:active {
 	text-shadow: -1px -1px -1px #555;
 	position:relative;
 	top: 1px;
 	left: 1px;
+	color: orange;
 }
 
 /*still working on active states*/
-div#home a.home-nav,
+/*div#home a.home-nav,
 div#photo a.photo-nav,
 div#story a.story-nav,
 div#video a.video-nav,
 div#profile a.profile-nav {
-	color: orange;
-}
+  color: orange;
+}*/
 
 .category {
 	margin: 40px 20px;

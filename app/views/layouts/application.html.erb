@@ -22,19 +22,38 @@
       			<% end %>
       		</ul>				
       </header>
-     
+
+      
+      <!-- this is the original code for removing navigation from signin/signup pages -->
+		   <%# if current_user %>
+		   <!-- <nav>
+		           <ul>
+		              <li><a href="/">Home</a></li>
+		              <li><a href="/write_a_story">Write a Story</a></li>
+		              <li><a href="/write_a_photo_story">Upload a Photo Story</a></li>
+		              <li><a href="/videos">Record a Video Story</a></li>
+		              <%# if current_user %>
+		                <li><a href="/profile">View All My Stories</a></li>
+		              <%# end %>
+		          </ul>
+		        </nav>
+		        <%# end %> -->
+
+     <% if current_user %>
       <nav>
       	 <ul>
 	<!-- class on nav doesn't work - still working on it -->
-            <li ><a href="/" class="home-nav">Home</a></li>
+            <li><a href="/" class="home-nav">Home</a></li>
             <li><a href="/write_a_story" class="story-nav">Write a Story</a></li>
             <li><a href="/write_a_photo_story" class="photo-nav">Upload a Photo Story</a></li>
             <li><a href="/record_a_video_story" class="video">Record a Video Story</a></li>
       			<% if current_user %>
-        			<li><a href="/profile" class="profile-nav">View All My Stories</a></li>
-      			<% end %>
+      			<li><a href="/profile" class="profile-nav">View All My Stories</a></li>
       	</ul>
       </nav>
+      	<% end %>
+      	<% end %>
+
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
