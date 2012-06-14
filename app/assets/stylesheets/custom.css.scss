@@ -173,14 +173,9 @@ nav li a:active {
 	color: orange;
 }
 
-/*still working on active states*/
-/*div#home a.home-nav,
-div#photo a.photo-nav,
-div#story a.story-nav,
-div#video a.video-nav,
-div#profile a.profile-nav {
-  color: orange;
-}*/
+nav .home-nav a:active {
+	color: orange;
+}
 
 .category {
 	margin: 40px 20px;
@@ -427,6 +422,7 @@ section {
   }
   h3 {
     font-size: 18px;
+		margin-bottom: 10px;
     
   }
 }
@@ -484,10 +480,43 @@ input {
     margin-right: 10px;
   }
   
-#text_story_question_id {
+#text_story_question_id, #photo_question_id {
   overflow: none;
   font-size: 24px;
+	height: 30px;
 }
 
+form .question {
+	padding: 20px 0;
+}
+
+form .question h1 {
+	size: 14px;
+}
+
+form .text {
+	padding: 0 0 20px 0;
+}
+
+.back a {
+	color: orange;
+}
+
+.alert {
+	margin: 0 20px;
+	color: red;
+}
+
+.notice {
+	margin: 10px 20px;
+	color: green;
+}
+
+img {
+	float: left;
+	padding: 5px;
+	border: 1px gray solid;
+	margin-right: 5px;
+}
 
 

@@ -1,5 +1,3 @@
-<!-- story id is for active state, but not doing anything...yet -->
-<div id="story">
 	<%= form_for(@text_story) do |f| %>
 	  <% if @text_story.errors.any? %>
 	    <div id="error_explanation">
@@ -14,23 +12,29 @@
 	  <% end %>
   
 	  <input type="hidden" name="category_id" value="<%=params[:category_id] %>">  
+		
+		<div class="question">
+		  <div class="field">
+		    	<%= f.label :question %><br />
+			    <% if @questions %>
+					  <%= f.collection_select :question_id, @questions, :id, :inquiry %>
+					<% else %>
+			  		<%= Question.find(@text_story.question_id).inquiry %>
+					<% end %>
+				</div>
+			</div>
+			
+			<div class="text">
+				<div class="field">
+			    <%= f.label :text, "Write a short story below:" %><br />
+			    <%= f.text_area :text %>
+			  </div>
+			</div>
+			
 
-	  <div class="field">
-	    <%= f.label :question %><br />
-	    <% if @questions %>
-			  <%= f.collection_select :question_id, @questions, :id, :inquiry %>
-			<% else %>
-	  		<%= Question.find(@text_story.question_id).inquiry %>
-			<% end %>
-				
-			<div class="field">
-		    <%= f.label :text %><br />
-		    <%= f.text_area :text %>
-		  </div>
-	
-	  </div>
 	  <div class="actions">
-	    <%= f.submit %>
+	    <%= f.submit :class => "btn" %>
 	  </div>
+	
 	<% end %>
-</div>
+

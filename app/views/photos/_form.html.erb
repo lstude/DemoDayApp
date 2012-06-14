@@ -13,14 +13,15 @@
 	      </ul>
 	    </div>
 	  <% end %>
-
-	  <div class="field">
-	    <%= f.label :question, "Question:" %><br />
-	    <% if @questions %>
-			  <%= f.collection_select :question_id, @questions, :id, :inquiry %>
-			<% else %>
-	  		<%= Question.find(@photo.question_id).inquiry %>
-			<% end %>
+		<div class="question">
+	  	<div class="field">
+		    <%= f.label :question, "Question:" %><br />
+		    <% if @questions %>
+				  <%= f.collection_select :question_id, @questions, :id, :inquiry %>
+				<% else %>
+		  		<%= Question.find(@photo.question_id).inquiry %>
+				<% end %>
+				</div>
 			</div>
 		
 		<div class="field">
@@ -32,13 +33,15 @@
 	      <%#= f.text_field :embed_url %>
 	    </div><br /> -->
 
-	  <div class="field">
-	    <%= f.label :text, "Write a short story to explain your photo:" %><br />
-	    <%= f.text_area :text %>
-	  </div>
+		<div class="text">
+	  	<div class="field">
+		    <%= f.label :text, "Write a short story to explain your photo:" %><br />
+		    <%= f.text_area :text %>
+		  </div>
+		</div>
 
 	  <div class="actions">
-	    <%= f.submit "Submit Photo Story" %>
+	    <%= f.submit "Submit Photo Story", :class => "btn" %>
 	  </div>
 	<% end %>
 

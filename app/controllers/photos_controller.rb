@@ -17,6 +17,7 @@ class PhotosController < ApplicationController
   # GET /photos/1.json
   def show
     @photo = Photo.find(params[:id])
+    @questions = Question.find_all_by_category_id(params[:category_id])
 
     respond_to do |format|
       format.html # show.html.erb

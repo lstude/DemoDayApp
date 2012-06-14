@@ -14,7 +14,9 @@
   	<!-- <div class="readMore"><%= raw(truncate(s.text, :length => 100, :omission => " Read More")) %></div> -->
 			<div class="readMore">
 				<p><%= s.text %></p>
-				<p><%= link_to 'Show', s %> | <%= link_to 'Edit', edit_text_story_path(s) %> | <%= link_to 'Destroy', s, confirm: 'Are you sure?', method: :delete %></p>
+			<div class="back">
+				<p><%= link_to 'Edit', edit_text_story_path(s) %> | <%= link_to 'Delete', s, confirm: 'Are you sure?', method: :delete %></p>
+			</div>
 			</div>
   <% end %>
 </section>
@@ -31,11 +33,12 @@
 			<%= s.text %>
     	<!-- <figcaption><%= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %><figcaption> -->
   	</figure>
-		<p>
-				<%= link_to 'Show', s %> | <%= link_to 'Edit', 	
-				edit_photo_url(s) %> | <%= link_to 'Destroy', 		
-				s, confirm: 'Are you sure?', method: :delete %>
-		</p>
+			<div class="back">
+				<p>
+						<%= link_to 'Edit', 	edit_photo_url(s) %> | <%= link_to 'Delete', 		
+						s, confirm: 'Are you sure?', method: :delete %>
+				</p>
+			</div>
 		</div>
   <% end %>
 </section>

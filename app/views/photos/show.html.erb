@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @photo.image_url(:scale) %>
+</p>
+
+<div class="clear">
+	</div>
+<p>
+  <b>Question:</b>
+  <%= Question.find(@photo.question_id).inquiry %>
+</p>
+
+<p>
   <b>Text:</b>
   <%= @photo.text %>
 </p>
 
-<p>
-  <b>Question:</b>
-  <%= @photo.question_id %>
-</p>
-
-<p>
-  <%= image_tag @photo.image_url %>
-</p>
-
-
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<%= link_to 'Back', profile_index_url %>
