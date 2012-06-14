@@ -35,7 +35,7 @@
   	</figure>
 			<div class="back">
 				<p>
-						<%= link_to 'Edit', 	edit_photo_url(s) %> | <%= link_to 'Delete', 		
+						<%= link_to 'Edit', edit_photo_url(s) %> | <%= link_to 'Delete', 		
 						s, confirm: 'Are you sure?', method: :delete %>
 				</p>
 			</div>
@@ -53,6 +53,11 @@
   	<figure>
     	<a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
   	</figure>
+			<div class="back">
+			<p>
+					<%= link_to 'Delete', video, confirm: 'Are you sure?', method: :delete %>
+			</p>
+			</div>
 	</div>
   <% end %>
 </section>
@@ -104,3 +109,5 @@
     loadPlayers(ids);
 	});
 </script>
+
+
