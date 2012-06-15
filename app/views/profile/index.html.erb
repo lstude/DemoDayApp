@@ -35,7 +35,7 @@
   	<figure>
     	<%= image_tag(s.image_url(:thumb)) %>
 			<%= s.text %>
-    	<!-- <figcaption><%= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %><figcaption> -->
+    	<!-- <figcaption><%#= raw(truncate(s.text, :length => 100, :omission => (link_to "...Read More", s))) %><figcaption> -->
   	</figure>
 			<div class="back">
 				<p>
@@ -43,6 +43,8 @@
 						s, confirm: 'Are you sure?', method: :delete %>
 				</p>
 			</div>
+			<div class="clear">
+			 </div>
 		</div>
   <% end %>
 </section>
@@ -64,7 +66,6 @@
 			</div>
 	</div>
   <% end %>
-  </div>
 </section>
 
 <%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>

@@ -43,10 +43,8 @@
       <nav>
       	 <ul>
 	<!-- class on nav doesn't work - still working on it -->
-            <li><%= link_to "Home", "/", :class  => is_active?('root') %></li>
-						<!-- <li><a href="/" class="active">Home</a></li> -->
-						<li><%= link_to "Write a Story", "write_a_story", :class  => is_active?('story') %></li>
-            <!-- <li><a href="/write_a_story" class="story-nav">Write a Story</a></li> -->
+            <li><a href="/" class="home-nav">Home</a></li>
+            <li><a href="/write_a_story" class="story-nav">Write a Story</a></li>
             <li><a href="/write_a_photo_story" class="photo-nav">Upload a Photo Story</a></li>
             <li><a href="/record_a_video_story" class="video">Record a Video Story</a></li>
       			<% if current_user %>
@@ -64,8 +62,9 @@
         <%= yield %>
       </div>
 
+
       <footer>
-        <p>.....</p>
+        <p>This is the Footer</p>
       </footer>
 		
   	</div><!-- .container -->
