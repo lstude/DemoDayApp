@@ -1,4 +1,8 @@
-
+<script>
+	$(function() {
+		$( ".accordion" ).accordion();
+	});
+</script>
 <% title "View Your Stories" %>
 <hgroup>
   <h1>Hello, <%= @user.first %>!</h1>
@@ -7,10 +11,9 @@
 
 <section>
   <h1>Your Text Stories:</h1>
+	<div class="accordion">
   	<% @user.text_stories.each do |s| %>
-  		<div class="title">
-				<h3><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
-			</div>
+		<h3 class="title"><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
   	<!-- <div class="readMore"><%= raw(truncate(s.text, :length => 100, :omission => " Read More")) %></div> -->
 			<div class="readMore">
 				<p><%= s.text %></p>
@@ -19,6 +22,7 @@
 			</div>
 			</div>
   <% end %>
+  </div>
 </section>
 
 <section>
@@ -45,10 +49,9 @@
 
 <section>
   <h1>Your Video Stories:</h1>
+  <div class="accordion">
   <% @user.videos.each do |video| %>
-	<div class="title">
-    <h3><%= video.question.inquiry %><span> Click to read more and edit</span></h3>
-	</div>
+  <h3 class="title"><%= video.question.inquiry %><span> Click to read more and edit</span></h3>
 	<div class="readMore">
   	<figure>
     	<a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
@@ -60,9 +63,10 @@
 			</div>
 	</div>
   <% end %>
+  </div>
 </section>
 
-<%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>
+<!-- <%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>
 
 <script>
 	var recorderManager;
@@ -108,6 +112,6 @@
     
     loadPlayers(ids);
 	});
-</script>
+</script> -->
 
 
