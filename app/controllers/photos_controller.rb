@@ -81,7 +81,7 @@ class PhotosController < ApplicationController
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to photos_url }
+      format.html { redirect_to profile_index_url }
       format.json { head :no_content }
     end
   end

@@ -2,14 +2,14 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    # @api_key = "5875231" # Replace with your OpenTok API key.
-    #    @api_secret = "8f5cde4ade6b11ea22cfd73ea345c64b4e423d29"  # Replace with your OpenTok API secret.
-    # 
-    #    @opentok = OpenTok::OpenTokSDK.new @api_key, @api_secret
-    #    @location = 'localhost'
-    #    @session_id = @opentok.create_session(@location)
-    # 
-    #    @token = @opentok.generate_token :session_id => @session_id, :role => OpenTok::RoleConstants::PUBLISHER, :connection_data => "username=Bob, level=4"
+     @api_key = "5875231" # Replace with your OpenTok API key.
+       @api_secret = "8f5cde4ade6b11ea22cfd73ea345c64b4e423d29"  # Replace with your OpenTok API secret.
+    
+      @opentok = OpenTok::OpenTokSDK.new @api_key, @api_secret
+      @location = 'localhost'
+      @session_id = @opentok.create_session(@location)
+   
+      @token = @opentok.generate_token :session_id => @session_id, :role => OpenTok::RoleConstants::PUBLISHER, :connection_data => "username=Bob, level=4"
    
     @videos = Video.all
     @video = Video.new
@@ -99,7 +99,7 @@ class VideosController < ApplicationController
     @video.destroy
 
     respond_to do |format|
-      format.html { redirect_to videos_url }
+      format.html { redirect_to profile_index_url }
       format.json { head :no_content }
     end
   end

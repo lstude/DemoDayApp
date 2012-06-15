@@ -81,7 +81,7 @@ class TextStoriesController < ApplicationController
     @text_story.destroy
 
     respond_to do |format|
-      format.html { redirect_to text_stories_url }
+      format.html { redirect_to profile_index_url }
       format.json { head :no_content }
     end
   end
