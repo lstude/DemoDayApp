@@ -11,15 +11,15 @@
 
 <section>
   <h1>Your Text Stories:</h1>
-	<div class="accordion">
+	<div class="title">
   	<% @user.text_stories.each do |s| %>
-		<h3 class="title"><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
+		<h3><%= s.question.inquiry %><span> Click to read more and edit</span></h3>
   	<!-- <div class="readMore"><%= raw(truncate(s.text, :length => 100, :omission => " Read More")) %></div> -->
+		</div>
 			<div class="readMore">
 				<p><%= s.text %></p>
 			<div class="back">
 				<p><%= link_to 'Edit', edit_text_story_path(s) %> | <%= link_to 'Delete', s, confirm: 'Are you sure?', method: :delete %></p>
-			</div>
 			</div>
   <% end %>
   </div>
@@ -49,9 +49,10 @@
 
 <section>
   <h1>Your Video Stories:</h1>
-  <div class="accordion">
+  <div class="title">
   <% @user.videos.each do |video| %>
-  <h3 class="title"><%= video.question.inquiry %><span> Click to read more and edit</span></h3>
+  <h3><%= video.question.inquiry %><span> Click to read more and edit</span></h3>
+	</div>
 	<div class="readMore">
   	<figure>
     	<a href="#" id="video-<%= video.archive_id %>" class="link-to-video">See video!</a>
@@ -66,7 +67,7 @@
   </div>
 </section>
 
-<!-- <%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>
+<%= javascript_include_tag "http://staging.tokbox.com/v0.91/js/TB.min.js" %>
 
 <script>
 	var recorderManager;
@@ -112,6 +113,6 @@
     
     loadPlayers(ids);
 	});
-</script> -->
+</script>
 
 
